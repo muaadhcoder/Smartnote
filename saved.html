@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Note - Saved Files</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-group">
+                    <h1 class="title">SMART NOTE</h1>
+                    <p class="subtitle">Your saved notes and drawings</p>
+                </div>
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Smart Note Logo" class="logo-img">
+                </div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="saved.html" class="nav-link active"><i class="fas fa-folder"></i> Saved Files</a>
+        </nav>
+
+        <main class="saved-files-container">
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="note">Notes</button>
+                <button class="filter-btn" data-filter="drawing">Drawings</button>
+            </div>
+
+            <div class="saved-files-grid" id="savedFilesGrid">
+                <!-- Files will be loaded here by JavaScript -->
+                <p class="no-files-message">No saved files yet. Create something amazing!</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="saved-script.js"></script>
+    <!-- Add this modal div at the end of body -->
+<div id="renameModal" class="modal">
+    <div class="modal-content">
+        <h3>Rename File</h3>
+        <input type="text" id="newFileName" class="rename-input">
+        <div class="modal-actions">
+            <button id="cancelRename" class="btn secondary">Cancel</button>
+            <button id="confirmRename" class="btn primary">Save</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

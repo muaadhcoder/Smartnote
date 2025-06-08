@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Note - Your Digital Notebook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-group">
+                    <h1 class="title">SMART NOTE</h1>
+                    <p class="subtitle">Your digital notebook for writing and drawing ideas</p>
+                </div>
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Smart Note Logo" class="logo-img">
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="mode-selector">
+                <div class="mode-btn write-mode active" data-mode="write">
+                    <i class="fas fa-edit"></i>
+                    <span>Write Note</span>
+                </div>
+                <div class="mode-btn draw-mode" data-mode="draw">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Draw</span>
+                </div>
+            </div>
+
+            <div class="workspace">
+                <div class="write-area active" id="writeArea">
+                    <textarea placeholder="Start typing your note here..." class="note-textarea"></textarea>
+                </div>
+                <div class="draw-area" id="drawArea">
+                    <canvas id="drawCanvas"></canvas>
+                    <div class="draw-tools">
+                        <div class="tool-btn" data-tool="pen" title="Pen"><i class="fas fa-pen"></i></div>
+                        <div class="tool-btn" data-tool="eraser" title="Eraser"><i class="fas fa-eraser"></i></div>
+                        <input type="color" id="colorPicker" value="#000000" title="Color">
+                        <input type="range" id="brushSize" min="1" max="50" value="5" title="Brush Size">
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn save-btn" id="saveBtn">
+                    <i class="fas fa-save"></i> Save Note
+                </button>
+                <button class="btn clear-btn" id="clearBtn">
+                    <i class="fas fa-trash-alt"></i> Clear
+                </button>
+                <button class="btn download-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <nav class="navigation">
+    <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+    <a href="saved.html" class="nav-link"><i class="fas fa-folder"></i> Saved Files</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,497 @@
+:root {
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+    --light-blue: #93c5fd;
+    --black: #1f2937;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title-group {
+    flex: 1;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.mode-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: 2px solid var(--light-blue);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.mode-btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+}
+
+.mode-btn span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.mode-btn.active {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.mode-btn.active i,
+.mode-btn.active span {
+    color: var(--white);
+}
+
+.mode-btn:hover:not(.active) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.workspace {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    min-height: 400px;
+}
+
+.write-area, .draw-area {
+    display: none;
+    height: 100%;
+}
+
+.write-area.active, .draw-area.active {
+    display: block;
+}
+
+.note-textarea {
+    width: 100%;
+    height: 400px;
+    border: none;
+    resize: none;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: var(--light-gray);
+    transition: var(--transition);
+}
+
+.note-textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+}
+
+#drawCanvas {
+    width: 100%;
+    height: 400px;
+    background-color: var(--light-gray);
+    border-radius: 5px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.draw-tools {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.tool-btn {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tool-btn:hover {
+    background-color: var(--light-blue);
+    color: var(--white);
+}
+
+.tool-btn.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.btn i {
+    font-size: 1rem;
+}
+
+.save-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.save-btn:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.clear-btn {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--gray);
+}
+
+.clear-btn:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+}
+
+.download-btn {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.download-btn:hover {
+    background-color: #111827;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-top: 1rem;
+    }
+
+    .mode-selector {
+        flex-direction: column;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* Navigation */
+.navigation {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--black);
+    border-radius: 5px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+.nav-link.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Saved Files Page */
+.saved-files-container {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+.filter-btn:hover:not(.active) {
+    background-color: var(--light-gray);
+}
+
+.saved-files-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.saved-file-card {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-file-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.file-preview {
+    height: 150px;
+    background-color: var(--white);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.file-preview.note {
+    padding: 1rem;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.file-preview.drawing img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.file-meta {
+    margin-top: auto;
+}
+
+.file-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-date {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.file-action-btn {
+    flex: 1;
+    padding: 0.3rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.file-action-btn.view {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.file-action-btn.delete {
+    background-color: #ef4444;
+    color: var(--white);
+}
+
+.file-action-btn:hover {
+    opacity: 0.8;
+}
+
+.no-files-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: var(--gray);
+}
+/* Rename Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rename-input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn.secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn.primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+/* Add rename button to file actions */
+.file-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.rename-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
